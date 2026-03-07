@@ -2,6 +2,7 @@ import { apiFetch, apiFetchMultipart } from "./client"
 
 export async function getProductsApi({ page = 0, size = 20, search, tag } = {}) {
   const params = new URLSearchParams({ page, size })
+  
   if (search) params.append("search", search)
   if (tag)    params.append("tag",    tag)
 
