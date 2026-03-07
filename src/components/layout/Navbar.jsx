@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
-import { User } from "lucide-react"
+import { User, Plus } from "lucide-react"
 import IconButton from "../common/IconButton"
 import { logout } from "../../store/authSlice"
 
@@ -35,6 +35,13 @@ export default function Navbar() {
       <div className="flex items-center justify-end gap-3">
         {isAuthenticated ? (
           <>
+            <Link to="/create">
+              <button className="btn-primary gap-1 text-xs">
+                <Plus size={13} />
+                New
+              </button>
+            </Link>
+
             <IconButton
               icon={<User />}
               label="Profile"

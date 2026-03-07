@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { getProductsApi, getProductByIdApi, deleteProductApi } from "../api/products"
 
+
+// async since working with backend 
+
 // fetch paginated list all
 export const fetchProducts = createAsyncThunk(
   "products/fetchAll",

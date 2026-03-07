@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer"
 import ProductsPage from "./pages/ProductsPage"
 import LoginPage    from "./pages/LoginPage"
 import RegisterPage from "./pages/RegisterPage"
+import CreateProductPage  from "./pages/CreateProductPage"
 import ProtectedRoute from "./components/common/ProtectedRoute"
 
 export default function App() {
@@ -15,11 +16,11 @@ export default function App() {
           <Route path="/"         element={<ProductsPage />} />
           <Route path="/login"    element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-
-
-          <ProtectedRoute>
-            {/* For protected routes */}
-          </ProtectedRoute>
+          <Route path="/create"   element={
+              <ProtectedRoute>
+                <CreateProductPage />
+              </ProtectedRoute> 
+            } />
         </Routes>
       </main>
       <Footer />
