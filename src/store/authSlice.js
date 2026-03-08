@@ -1,4 +1,4 @@
-import { createSlice, createAsyncTrunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 
 const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080"
 
