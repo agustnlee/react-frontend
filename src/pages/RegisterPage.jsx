@@ -85,7 +85,7 @@ export default function RegisterPage() {
               type="email"
               value={email}
               onChange={e => { setEmail(e.target.value); setErrors(p => ({ ...p, email: null })) }}
-              placeholder="you@email.com"
+              placeholder="ex. you@email.com"
               className={`
                 px-3 py-2 rounded border text-sm
                 bg-surface text-text placeholder:text-muted
@@ -105,7 +105,7 @@ export default function RegisterPage() {
               type="text"
               value={username}
               onChange={e => { setUsername(e.target.value); setErrors(p => ({ ...p, username: null })) }}
-              placeholder="agus123"
+              placeholder="e.g. agus123"
               className={`
                 px-3 py-2 rounded border text-sm
                 bg-surface text-text placeholder:text-muted
@@ -125,7 +125,6 @@ export default function RegisterPage() {
               type="password"
               value={password}
               onChange={e => { setPassword(e.target.value); setErrors(p => ({ ...p, password: null })) }}
-              placeholder="••••••••"
               className={`
                 px-3 py-2 rounded border text-sm
                 bg-surface text-text placeholder:text-muted

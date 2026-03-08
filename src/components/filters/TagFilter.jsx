@@ -14,6 +14,8 @@ export default function TagFilter() { // tag pills
   const dispatch    = useDispatch()
   const selectedTag = useSelector(s => s.filters.selectedTag)
 
+
+  // HERE IN FUTURE CAN MAKE IT A CONTAINER AND CAN MOVE AROUND IF OVERLOAD?? OR 2 ROWS"
   return (
     <div className="flex items-center gap-2 flex-wrap">
       {TAGS.map(tag => {

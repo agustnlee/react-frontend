@@ -73,7 +73,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={e => { setEmail(e.target.value); setError(null) }}
-              placeholder="you@email.com"
+              placeholder="ex. you@email.com"
               className="
                 px-3 py-2 rounded border border-border text-sm
                 bg-surface text-text placeholder:text-muted
@@ -85,7 +85,7 @@ export default function LoginPage() {
 
           {/* password */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-text">Password</label>
+            <label className="text-sm font-medium text-text" />
             <input
               type="password"
               value={password}

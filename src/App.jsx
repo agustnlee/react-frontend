@@ -11,7 +11,12 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-bg text-text">
       <Navbar />
-      <main className="flex-1 flex flex-col">
+      <main 
+        className="flex-1 flex flex-col"
+        style={{
+          padding: "var(--page-padding-y) var(--page-padding-x)",
+        }}
+      >
         <Routes>
           <Route path="/"         element={<ProductsPage />} />
           <Route path="/login"    element={<LoginPage />} />

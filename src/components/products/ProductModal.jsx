@@ -25,6 +25,13 @@ export default function ProductModal({ productId, onClose }) {
     return () => document.removeEventListener("keydown", handleKey)
   }, [onClose])
 
+  useEffect(() => {
+      document.body.style.overflow = "hidden"
+      return () => {
+        document.body.style.overflow = "unset"
+      }
+  }, [])
+
   async function handleDelete() {
     await dispatch(deleteProduct(selected.id))
     onClose()
@@ -73,14 +80,11 @@ export default function ProductModal({ productId, onClose }) {
             {/* content */}
             <div className="flex flex-col gap-4 p-6">
 
-              {/* title + price */}
+              {/* title */}
               <div className="flex items-start justify-between gap-4">
                 <h2 className="text-xl font-semibold text-text leading-snug">
                   {selected.title}
                 </h2>
-                <span className="text-xl font-bold text-primary whitespace-nowrap">
-                  ${selected.price}
-                </span>
               </div>
 
               {/* tags */}
@@ -124,7 +128,7 @@ export default function ProductModal({ productId, onClose }) {
                 </div>
               )}
 
-              {/* footer  owner + date + delete */}
+              {/* footer  owner + date + delete  + price*/}
               <div className="flex items-center justify-between pt-4 border-t border-border">
                 <div className="flex flex-col gap-0.5">
                   <span className="text-xs text-muted">
@@ -135,15 +139,18 @@ export default function ProductModal({ productId, onClose }) {
                   </span>
                 </div>
 
-                {isOwner && (
-                  <button
-                    onClick={handleDelete}
-                    className="btn-danger gap-2"
-                  >
-                    <Trash2 size={14} />
-                    Delete
-                  </button>
-                )}
+                 <div className="flex items-center gap-3">
+                    <span className="text-xl font-bold text-primary whitespace-nowrap">
+                      ${selected.price}
+                    </span>
+
+                    {isOwner && (
+                      <button onClick={handleDelete} className="btn-danger gap-2">
+                      <Trash2 size={14} />
+                        Delete
+                      </button>
+                    )}
+                 </div>
               </div>
 
             </div>

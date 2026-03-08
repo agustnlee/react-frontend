@@ -9,11 +9,7 @@ export default function ProductCard({ product, onClick, onDelete }) {
   return (
     <div
       onClick={onClick}
-      className="
-        flex flex-col rounded-lg border border-border bg-surface
-        hover:border-primary hover:shadow-lg
-        transition-all duration-200 cursor-pointer overflow-hidden
-      "
+      className= "card-hover flex flex-col rounded-lg bg-surface cursor-pointer overflow-hidden"
     >
       {/* image */}
       <div className="relative w-full aspect-video bg-bg overflow-hidden">
@@ -31,11 +27,11 @@ export default function ProductCard({ product, onClick, onDelete }) {
 
         {/* tags top left overlay */}
         {product.tags?.length > 0 && (
-          <div className="absolute top-2 left-2 flex flex-wrap gap-1">
-            {product.tags.slice(0, 2).map(tag => (
+          <div className="absolute top-2 left-2 right-12 flex gap-1 overflow-x-auto scrollbar-none">
+            {product.tags.map(tag => (
               <span
                 key={tag}
-                className="text-xs px-2 py-0.5 rounded-full bg-bg/80 border border-border text-muted"
+                className="text-xs px-2.5 py-1 rounded-full bg-primary/30 border border-black/10 text-white/70 whitespace-nowrap flex-shrink-0 backdrop-blur-sm"
               >
                 {tag}
               </span>
@@ -54,6 +50,7 @@ export default function ProductCard({ product, onClick, onDelete }) {
               label="Delete product"
               variant="danger"
               size="sm"
+              filled
             />
           </div>
         )}

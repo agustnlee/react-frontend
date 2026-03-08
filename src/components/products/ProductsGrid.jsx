@@ -23,7 +23,7 @@ export default function ProductsGrid({ onSelect, onDelete }) {
   )
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"> {/* column responsiveness */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"> {/* column responsiveness */}
       {items.map(product => (
         <ProductCard
           key={product.id}

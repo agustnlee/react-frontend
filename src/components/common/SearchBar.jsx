@@ -24,16 +24,17 @@ export default function SearchBar() {
     <div className="flex items-center gap-4 w-full">
 
       {/* search input */}
+      
       <div className="relative flex-1">
         <Search
           size={15}
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none pr-4"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-text pointer-events-none"
         />
         <input
           type="text"
           value={search}
           onChange={e => dispatch(setSearch(e.target.value))}
-          placeholder="Search products..."
+          placeholder= "Search products..."
           className={`
             w-full pl-14 pr-4 py-2 rounded border text-sm
             bg-surface text-text placeholder:text-muted

@@ -10,7 +10,7 @@ const AVAILABLE_TAGS = [
   "clothing", "books", "sports", "home", "other"
 ]
 
-export default function CreateProductPage() {
+export default function CreateProductPage() { // STUFF LIKE PRICE, etc, validation here also for quick ux response, but also in service as gate
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
@@ -81,7 +81,7 @@ export default function CreateProductPage() {
     })
   }
 
-  // image handler
+  // image handler. file reader for simper
   function handleImageChange(e) {
     const file = e.target.files[0]
     if (!file) return
@@ -198,12 +198,11 @@ export default function CreateProductPage() {
                 $
               </span>
               <input
-                type="number"
+                type="text"
+                inputMode="decimal" 
                 value={price}
                 onChange={e => { setPrice(e.target.value); setErrors(p => ({ ...p, price: null })) }}
                 placeholder="0.00"
-                min="0"
-                step="0.01"
                 className={`
                   w-full pl-7 pr-3 py-2 rounded border text-sm bg-surface text-text
                   placeholder:text-muted outline-none

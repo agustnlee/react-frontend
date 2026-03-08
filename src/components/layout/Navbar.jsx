@@ -9,13 +9,13 @@ export default function Navbar() {
   const { isAuthenticated } = useSelector(s => s.auth)
 
   return (
-    <nav className="w-full grid grid-cols-3 items-center px-6 h-navbar bg-surface border-b border-border">
+    <nav className="w-full grid grid-cols-3 items-center h-navbar bg-surface border-b border-border">
 
       {/* LEFT */}
-      <div className="flex items-center">
+      <div className="flex items-center  pl-6">
         <Link
           to="/"
-          className="font-bold text-lg text-primary transition-colors duration-200 hover:text-primary-hover"
+          className="font-bold text-lg  text-primary transition-colors duration-200 hover:text-primary-hover"
         >
           TEST
         </Link>
@@ -32,7 +32,7 @@ export default function Navbar() {
       </div>
 
       {/* RIGHT */}
-      <div className="flex items-center justify-end gap-3">
+      <div className="flex items-center justify-end gap-3  pr-6">
         {isAuthenticated ? (
           <>
             <Link to="/create">
@@ -48,9 +48,11 @@ export default function Navbar() {
               variant="default"
               size="md"
               onClick={() => {}}
+              lift
+              shadow
             />
             <button
-              className="btn-ghost text-xs"
+              className="btn-ghost"
               onClick={() => dispatch(logout())}
             >
               Logout
