@@ -1,32 +1,38 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, createAsyncTrunk } from "@reduxjs/toolkit"
 
-const stored = localStorage.getItem("user") // in production, go to https, handled by production host
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8080"
+
+const stored = localStorage.getItem("user") // user info like id username and role, non sensitive data 
+
+export const logoutUser = createAsyncThunk("auth/logoutUser", async (_, { dispatch }) => {
+  await fetch(`${BASE_URL}/api/auth/logout`, {
+    method:      "POST",
+    credentials: "include",
+  })
+  dispatch(clearAuth())
+})
+
 
 // slice for handling auth and storage
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    token:           localStorage.getItem("token") || null,
     user:            stored ? JSON.parse(stored) : null,
-    isAuthenticated: !!localStorage.getItem("token"),
+    isAuthenticated: !!stored,
   },
   reducers: {
     loginSuccess(state, action) {
-      state.token           = action.payload.token
       state.user            = action.payload.user
       state.isAuthenticated = true
-      localStorage.setItem("token", action.payload.token)
-      localStorage.setItem("user",  JSON.stringify(action.payload.user))
+      localStorage.setItem("user", JSON.stringify(action.payload.user))
     },
-    logout(state) {
-      state.token           = null
+    clearAuth(state) {
       state.user            = null
       state.isAuthenticated = false
-      localStorage.removeItem("token")
       localStorage.removeItem("user")
     }
   }
 })
 
-export const { loginSuccess, logout } = authSlice.actions
+export const { loginSuccess, clearAuth } = authSlice.actions
 export default authSlice.reducer

@@ -9,21 +9,16 @@ export class ApiError extends Error {
 }
 
 export async function apiFetch(path, options = {}) {
-  const token = localStorage.getItem("token")
-
   const res = await fetch(`${BASE_URL}${path}`, {
     ...options,
+    credentials: "include",   // sends cookie automatically
     headers: {
       "Content-Type": "application/json",
-      ...(token && { Authorization: `Bearer ${token}` }),
       ...options.headers,
     },
   })
 
-  // 401 token expired or invalid
   if (res.status === 401) {
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
     window.location.href = "/login"
     return
   }
@@ -36,7 +31,6 @@ export async function apiFetch(path, options = {}) {
     throw new ApiError(error.code, error.message, res.status)
   }
 
-  // 204 no content 
   if (res.status === 204) return null
 
   return res.json()
@@ -44,19 +38,13 @@ export async function apiFetch(path, options = {}) {
 
 // multipart (application/json)
 export async function apiFetchMultipart(path, formData) {
-  const token = localStorage.getItem("token")
-
   const res = await fetch(`${BASE_URL}${path}`, {
-    method: "POST",
-    headers: {
-      ...(token && { Authorization: `Bearer ${token}` }),
-    },
-    body: formData,
+    method:      "POST",
+    credentials: "include",   // sends cookie automatically
+    body:        formData,
   })
 
   if (res.status === 401) {
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
     window.location.href = "/login"
     return
   }

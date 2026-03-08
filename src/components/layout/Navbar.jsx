@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { User, Plus } from "lucide-react"
 import IconButton from "../common/IconButton"
-import { logout } from "../../store/authSlice"
+import { logoutUser } from "../../store/authSlice"
 
 export default function Navbar() {
   const dispatch = useDispatch()
@@ -53,7 +53,7 @@ export default function Navbar() {
             />
             <button
               className="btn-ghost"
-              onClick={() => dispatch(logout())}
+              onClick={() => dispatch(logoutUser())} 
             >
               Logout
             </button>
