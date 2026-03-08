@@ -133,13 +133,15 @@ export default function CreateProductPage() {
     }
   }
 
+
+  // LITTLE COUPLING for not needing modify page yet, else resusable components ought to be devd
   return (
     <div className="flex-1 flex flex-col items-center py-10 px-4">
       <div className="w-full max-w-xl flex flex-col gap-6">
 
         {/* header */}
         <div>
-          <h1 className="text-2xl font-semibold text-text">New Product</h1>
+          <h1 className="text-2xl font-semibold text-text">Add New Product</h1>
           <p className="text-sm text-muted mt-1">Fill in the details below</p>
         </div>
 

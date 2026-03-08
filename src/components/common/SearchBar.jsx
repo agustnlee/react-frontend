@@ -21,13 +21,13 @@ export default function SearchBar() {
   const hasFilters = search || selectedTag
 
   return (
-    <div className="flex items-center gap-2 w-full">
+    <div className="flex items-center gap-4 w-full">
 
       {/* search input */}
       <div className="relative flex-1">
         <Search
           size={15}
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none pr-4"
         />
         <input
           type="text"
@@ -35,7 +35,7 @@ export default function SearchBar() {
           onChange={e => dispatch(setSearch(e.target.value))}
           placeholder="Search products..."
           className={`
-            w-full pl-9 pr-4 py-2 rounded border text-sm
+            w-full pl-14 pr-4 py-2 rounded border text-sm
             bg-surface text-text placeholder:text-muted
             transition-all duration-200 outline-none
             focus:border-primary
