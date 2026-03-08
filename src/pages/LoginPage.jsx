@@ -73,7 +73,7 @@ export default function LoginPage() {
               type="email"
               value={email}
               onChange={e => { setEmail(e.target.value); setError(null) }}
-              placeholder="ex. you@email.com"
+              placeholder="e.g. you@email.com"
               className="
                 px-3 py-2 rounded border border-border text-sm
                 bg-surface text-text placeholder:text-muted

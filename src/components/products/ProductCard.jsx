@@ -31,7 +31,7 @@ export default function ProductCard({ product, onClick, onDelete }) {
             {product.tags.map(tag => (
               <span
                 key={tag}
-                className="text-xs px-2.5 py-1 rounded-full bg-primary/30 border border-black/10 text-white/70 whitespace-nowrap flex-shrink-0 backdrop-blur-sm"
+                className="text-xs px-2.5 py-1 rounded-full bg-primary/30 border border-black/10 text-white/70 whitespace-nowrap shrink-0 backdrop-blur-sm"
               >
                 {tag}
               </span>
