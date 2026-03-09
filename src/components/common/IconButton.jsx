@@ -20,6 +20,13 @@ const filling = {
   success: { backgroundColor: "rgba(34, 197, 94, 0.25)", border: "1px solid rgba(34,197,94,0.5)" },
 }
 
+const hoverShadows = {
+  default: "0 4px 12px rgba(255,255,255,0.1)",
+  danger:  "0 4px 12px rgba(239, 68, 68, 0.35)",
+  primary: "0 4px 12px rgba(99, 102, 241, 0.35)",
+  success: "0 4px 12px rgba(34, 197, 94, 0.35)",
+}
+
 export default function IconButton({icon, onClick, label, variant = "default", size = "md", disabled = false, className = "", lift = false, shadow = false, filled = false }) {
   const { container, iconSize } = sizes[size]
   const variantClasses = variants[variant]
